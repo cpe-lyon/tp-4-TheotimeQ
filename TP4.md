@@ -193,12 +193,36 @@ Le pacquet est crée !
 
 ## Création du dépôt personnel avec reprepro
 
+On creer un dossier repo-cpe
 
+```console
+User@localhost:~/Desktop/Package_Perso$ mkdir ~/repo-cpe
+```
 
+On ajoute conf et packages
 
+```console
+User@localhost:~/Desktop/Package_Perso$ cd ~/repo-cpe
+User@localhost:~/Desktop/Package_Perso$ mkdir ~/conf
+User@localhost:~/Desktop/Package_Perso$ mkdir ~/packages
+```
 
+On creer le fichier distribution :
 
+```bash
+Origin: Un nom, une URL, ou tout texte expliquant la provenance du dépôt
+Label: Nom du dépôt
+// Suite: stable
+Codename: focal #!! A MODIFIER selon la distribution cible !!
+Architectures: i386 amd64 #(architectures cibles)
+Components: universe #(correspond à notre cas)
+Description: Une description du dépôt
+```
 
+On genere l'arboresence du depot : 
+```console
+User@localhost:~/repo-cpe$ reprepro -b . export
+```
 
-
-![](/TP2_IMG/TP3_1.png)
+Cela creer tout les dossiers necessaires :
+![](/TP4_IMG/TP4-IMG-1.png)
