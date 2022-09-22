@@ -85,7 +85,7 @@ Hollywood permet de creer une fenettre en mode "hacking"
 ksudoku permet de jouer au sudoku .
 
 
-# Exercice 2. <a id='Anch1'></a>
+# Exercice 2. <a id='Anch2'></a>
 
 ## A partir de quel paquet est installée la commande ls ? 
 
@@ -110,8 +110,88 @@ Avec la commande `dpkg -S ls | grep "/ls$"`
 echo $(dpkg -S ls | grep "/ls$" 2> /dev/null | cut -d " " -f1 | tr ":" "\n")
 ```
 
+# Exercice 3. <a id='Anch3'></a>
 
+##Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
+spécifié dans cette commande.
 
+# Exercice 4. <a id='Anch4'></a>
+
+Lister les programmes livrés avec coreutils. En particulier, on remarque que l’un deux se nomme [. De
+quoi s’agit-il ?
+Exercice 5. aptitude
+Installez les paquets emacs et lynx à l’aide de la version graphique d’aptitude (et prenez deux minutes
+pour vous renseigner et tester ces paquets).
+
+# Exercice 5. <a id='Anch5'></a>
+
+Installez les paquets emacs et lynx à l’aide de la version graphique d’aptitude (et prenez deux minutes
+pour vous renseigner et tester ces paquets).
+
+Emacs est un éditeur de texte 
+Lynx est un client World Wide Web 
+
+# Exercice 6. <a id='Anch6'></a>
+
+Certains logiciels ne figurent pas dans les dépôts officiels. C’est le cas par exemple de la version ”officielle”
+de Java depuis qu’elle est développée par Oracle. Dans ces cas, on peut parfois se tourner vers un ”dépôt
+personnel” ou PPA.
+1. Installer la version Oracle de Java (avec l’ajout des PPA)
+sudo add-apt-repository ppa:linuxuprising/java
+sudo apt update
+sudo apt install oracle-java15-installer
+2. Vérifiez qu’un nouveau fichier a été créé dans /etc/apt/sources.list.d. Que contient-il ?
+
+Ce fichier contient les reference vers les logiciels APT
+
+```bash
+deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main
+#deb-src http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main
+```
+
+# Exercice 7. <a id='Anch7'></a>
+
+Une fois l'installation realisé et le checkinstall verifié on peut executer cbonsai n'importe ou.
+
+# Exercice 8. Création de dépôt personnalisé <a id='Anch8'></a>
+
+## Création d’un paquet Debian avec dpkg-deb
+
+1. Dans le dossier scripts créé lors du TP 2, créez un sous-dossier origine-commande où vous créerez un sous-dossier DEBIAN, ainsi que l’arborescence usr/local/bin où vous placerez le script écrit à l’exercice 2
+
+Pour creer l'arborescence correcte , on tape : 
+```console
+User@localhost:~/Desktop/Package_Perso$ mkdir origin-commande
+User@localhost:~/Desktop/Package_Perso$ mkdir origin-commande/DEBIAN
+User@localhost:~/Desktop/Package_Perso$ mkdir origin-commande/usr
+User@localhost:~/Desktop/Package_Perso$ mkdir origin-commande/usr/local
+User@localhost:~/Desktop/Package_Perso$ mkdir origin-commande/usr/local/bin
+User@localhost:~/Desktop/Package_Perso$ touch origin-commande/usr/local/bin/script.sh
+User@localhost:~/Desktop/Package_Perso$ nano origin-commande/usr/local/bin/script.sh 
+User@localhost:~/Desktop/Package_Perso$ bash origin-commande/usr/local/bin/script.sh
+```
+2. Dans le dossier DEBIAN, créez un fichier control avec les champs suivants :
+Package: origine-commande #nom du paquet
+Version: 0.1 #numéro de version
+Maintainer: Foo Bar #votre nom
+Architecture: all #les architectures cibles de notre paquet (i386, amd64...)
+Description: Cherche l'origine d'une commande
+Section: utils #notre programme est un utilitaire
+Priority: optional #ce n'est pas un paquet indispendable
+
+On creer un fichier control avec les bons champs.
+
+3. Revenez dans le dossier parent de origine-commande (normalement, c’est votre $HOME) et tapez la
+commande suivante pour construire le paquet :
+
+```console
+User@localhost:~/Desktop/Package_Perso$ dpkg-deb --build origine-commande
+dpkg-deb: building package 'origine-commande' in 'origine-commande.deb'.
+```
+
+Le pacquet est crée !
+
+## Création du dépôt personnel avec reprepro
 
 
 
