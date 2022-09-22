@@ -112,4 +112,13 @@ echo $(dpkg -S ls | grep "/ls$" 2> /dev/null | cut -d " " -f1 | tr ":" "\n")
 
 
 
+
+
+
+
+
+
+
+
+
 ![](/TP2_IMG/TP3_1.png)
