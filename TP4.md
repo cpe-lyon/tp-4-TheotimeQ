@@ -226,3 +226,5 @@ User@localhost:~/repo-cpe$ reprepro -b . export
 
 Cela creer tout les dossiers necessaires :
 ![](/TP4_IMG/TP4-IMG-1.png)
+
+On poursuit la procedure comme expliqué dans le TP4
