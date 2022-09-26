@@ -84,6 +84,9 @@ Hollywood permet de creer une fenettre en mode "hacking"
 
 ksudoku permet de jouer au sudoku .
 
+```console
+User@localhost:~$ 
+```
 
 # Exercice 2. <a id='Anch2'></a>
 
@@ -112,16 +115,20 @@ echo $(dpkg -S ls | grep "/ls$" 2> /dev/null | cut -d " " -f1 | tr ":" "\n")
 
 # Exercice 3. <a id='Anch3'></a>
 
-##Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
+Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
 spécifié dans cette commande.
+
+
 
 # Exercice 4. <a id='Anch4'></a>
 
-Lister les programmes livrés avec coreutils. En particulier, on remarque que l’un deux se nomme [. De
-quoi s’agit-il ?
-Exercice 5. aptitude
-Installez les paquets emacs et lynx à l’aide de la version graphique d’aptitude (et prenez deux minutes
-pour vous renseigner et tester ces paquets).
+Lister les programmes livrés avec coreutils. En particulier, on remarque que l’un deux se nomme
+
+```console
+User@localhost:~$ dpkg -S ls | grep "/ls$"
+coreutils: /bin/ls
+klibc-utils: /usr/lib/klibc/bin/ls
+```
 
 # Exercice 5. <a id='Anch5'></a>
 
