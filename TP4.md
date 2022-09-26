@@ -85,7 +85,7 @@ Hollywood permet de creer une fenettre en mode "hacking"
 ksudoku permet de jouer au sudoku .
 
 ```console
-User@localhost:~$ 
+User@localhost:~$ sudo apt install ksudoku
 ```
 
 # Exercice 2. <a id='Anch2'></a>
@@ -110,7 +110,7 @@ Avec la commande `dpkg -S ls | grep "/ls$"`
 ```bash
 #!/bin/bash 
 
-echo $(dpkg -S ls | grep "/ls$" 2> /dev/null | cut -d " " -f1 | tr ":" "\n")
+echo $(dpkg -S $1 | grep "/$1$") 2> /dev/null | cut -d " " -f1 | tr ":" "\n"
 ```
 
 # Exercice 3. <a id='Anch3'></a>
@@ -118,7 +118,9 @@ echo $(dpkg -S ls | grep "/ls$" 2> /dev/null | cut -d " " -f1 | tr ":" "\n")
 Ecrire une commande qui affiche “INSTALLÉ” ou “NON INSTALLÉ” selon le nom et le statut du package
 spécifié dans cette commande.
 
-
+```bash
+dpkg -l | grep "^ksudoku/" && echo "INSTALLE" || echo "NON INSTALLE"
+```
 
 # Exercice 4. <a id='Anch4'></a>
 
