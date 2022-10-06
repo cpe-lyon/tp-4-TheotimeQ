@@ -137,8 +137,8 @@ klibc-utils: /usr/lib/klibc/bin/ls
 Installez les paquets emacs et lynx à l’aide de la version graphique d’aptitude (et prenez deux minutes
 pour vous renseigner et tester ces paquets).
 
-Emacs est un éditeur de texte 
-Lynx est un client World Wide Web 
+- Emacs est un éditeur de texte 
+- Lynx est un client World Wide Web 
 
 # Exercice 6. <a id='Anch6'></a>
 
@@ -159,6 +159,14 @@ deb http://ppa.launchpad.net/linuxuprising/java/ubuntu focal main
 ```
 
 # Exercice 7. <a id='Anch7'></a>
+
+```console
+User@localhost:~ git clone https://gitlab.com/jallbrit/cbonsai
+User@localhost:~ sudo apt install libncursesw5-dev
+User@localhost:~ sudo apt install make
+```
+
+![](/TP4_IMG/TP4-IMG-4.png)
 
 Une fois l'installation realisé et le checkinstall verifié on peut executer cbonsai n'importe ou.
 
